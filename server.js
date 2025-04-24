@@ -3,8 +3,14 @@ const errorHandler = require('./middleware/errorHandler');
 const connectDB = require('./config/dbConnection');
 const dotenv = require("dotenv").config();
 
-connectDB();
+//Coonects to local port from render
+const cors = require('cors');
+
 const app = express();
+
+connectDB();
+
+app.use(cors());  // Allows all origins by default
 
 const port = process.env.PORT;
 
